@@ -6,16 +6,15 @@
 
 process.stdout.write('Please enter a string to check if it is a palindrome: ');
 process.stdin.on('data', function (input) {
-  let string = input.toString().trim().toLowerCase();
+  let string = input.toString().trim().toLowerCase().replace(/\s+/g, '');
   let stringIndex = string.length - 1;
   let startingIndex = 0;
-  let palindrome
+  let palindrome = true;
 
   while (startingIndex <= stringIndex) {
     if (string[startingIndex] !== string[stringIndex]){
-      palindrome = false
-    } else {
-      palindrome = true;
+      palindrome = false;
+      break;
     }
     startingIndex++;
     stringIndex--;
