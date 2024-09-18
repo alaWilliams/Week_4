@@ -7,26 +7,24 @@
 process.stdout.write('Please enter a string to check if it is a palindrome: ');
 process.stdin.on('data', function (input) {
   let string = input.toString().trim().toLowerCase();
-  let stringIndex = --string.length;
-  let palindromeCheck = [];
-  // let stringStartIndex = 0
-  for (let i = 0; i < stringIndex; i++) {
-    console.log(string[i])
-    console.log(stringIndex)
-    for (let j = 0; j < stringIndex; j++) {
-      console.log(string)
-      
+  let stringIndex = string.length - 1;
+  let startingIndex = 0;
+  let palindrome
+
+  while (startingIndex <= stringIndex) {
+    if (string[startingIndex] !== string[stringIndex]){
+      palindrome = false
+    } else {
+      palindrome = true;
     }
-    // if (string[i] === string[stringEndIndex]) {
-    //   console.log('yes')
-    // } else {
-    //   console.log('no')
-    // }
+    startingIndex++;
+    stringIndex--;
   }
-  // if (string[0] === string[stringIndex]) {
-  //   console.log(string[0] + '\n' + string[stringIndex]);
-  // }
-//  console.log(string[stringIndex]);
-  
+  if (palindrome) {
+    process.stdout.write(string + ' is a palindrome.')
+  } else if (palindrome === false) {
+    process.stdout.write(string + ' is not a palindrome.')
+  }
   process.exit();
-})
+}
+)
