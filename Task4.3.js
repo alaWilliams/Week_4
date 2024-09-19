@@ -6,7 +6,8 @@ process.stdout.write('Please enter a string: ')
 process.stdin.on('data', function (input){
   let string = input.toString().trim(); 
   for (let i = string.length-1; i >= 0 ; i--) {
-    process.stdout.write(string[i] + '')
+    process.stdout.write(string[i])
   };
+
  process.exit();
 });
